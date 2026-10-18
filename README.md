@@ -1,21 +1,15 @@
-# SellerOps Accountant Web Trial v0.2
+# SellerOps Accountant Web Trial v0.3
 
-Independent Streamlit data-quality prototype, **not** the CP15 accounting engine.
+Extends v0.2 with an explicit fail-closed CP15 engine integration contract. **Not a CP15 engine implementation**. No financial close functionality.
 
-## Run
+## Deployment
+Upload `app.py`, `engine_contract.py`, `requirements.txt` to the existing GitHub repository (README optional). Streamlit will redeploy. Do not upload transaction data or internal engine files to a public repository.
 
-```bash
-pip install -r requirements.txt
-streamlit run app.py
-```
+## Tests
+`python -m unittest test_engine_contract.py`
 
 ## Scope
-
-- Amazon Transaction CSV upload (one or multiple files)
-- Type counts and Refund row counts
-- Required column / blank-value checks
-- Exact-content duplicate review signals (never auto-delete)
-- JSON quality report and CSV preview export
-
-No financial reconciliation, COGS, returns eligibility, M08/M09 decisioning, or monthly-close certification.
-Do not upload sensitive production reports to a public demo without privacy and access review.
+- v0.2 CSV descriptive inspection preserved.
+- Contract states required inputs and planned outputs, with NOT_CONNECTED status.
+- Missing original engine is an explicit blocking dependency. No CP15 rules invented.
+- Public deployment is not suitable for sensitive MANZEL data.
